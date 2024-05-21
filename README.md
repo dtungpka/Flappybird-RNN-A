@@ -1,27 +1,43 @@
-# Reinforcement Learning - Learning how to play Flappy Bird in PyTorch
+# Using DQN to Solve Flappy Bird
 
-This sample is published as part of the corresponding blog article at https://www.toptal.com/deep-learning/pytorch-reinforcement-learning-tutorial
- 
-Visit https://www.toptal.com/blog and subscribe to our newsletter to read great posts!
+
 
 ##### Dependencies:
-* Python 3.6.5
+* Python 3.9.13
 * Run `pip3 install -r requirements.txt` to install dependencies.
 
 ##### How to run:
-* Run `python dqn.py test` to run pretrained neural network model.
-* Run `python dqn.py train` to train the model from the beginning. You can also increase FPS in game/flappy_bird.py script for faster training.
+* Download the pretrained models from [github](https://github.com/dtungpka/Flappybird-RNN-A) and put them in the `pretrained_model` folder.
+* Run `python train.py -mode test -m dqn` to run pretrained dqn model.
+* Run `python train.py -mode train -m double_dqn` to train dqn model.
 
-References:
-* https://github.com/sourabhv/FlapPyBird
-* https://github.com/yenchenlin/DeepLearningFlappyBird -> modified FlapPyBird game engine adjusted for reinforcement learning is used from this TensorFlow project
-* https://ai.intel.com/demystifying-deep-reinforcement-learning/
-* https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf
-* https://storage.googleapis.com/deepmind-media/dqn/DQNNaturePaper.pdf
-* http://cs229.stanford.edu/proj2015/362_report.pdf
-* https://en.wikipedia.org/wiki/Convolutional_neural_network
-* https://en.wikipedia.org/wiki/Reinforcement_learning
-* https://en.wikipedia.org/wiki/Markov_decision_process
-* http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html
-* https://en.wikipedia.org/wiki/Flappy_Bird
-* https://pytorch.org/
+##### Usage:
+```
+usage: main.py [-h] [-mode MODE] [-m MODEL] [-g GAMMA] [-fe FINAL_EPSILON] [-ie INITIAL_EPSILON]
+               [-n NUMBER_OF_ITERATIONS] [-r REPLAY_MEMORY_SIZE] [-b MINIBATCH_SIZE]
+
+Flappy Bird with Reinforcement Learning
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -mode MODE, --mode MODE
+                        Mode: train or test
+  -m MODEL, --model MODEL
+                        Model to use: dqn , double_dqn or dueling_dqn
+  -g GAMMA, --gamma GAMMA
+                        Discount factor
+  -fe FINAL_EPSILON, --final_epsilon FINAL_EPSILON
+                        Final epsilon value
+  -ie INITIAL_EPSILON, --initial_epsilon INITIAL_EPSILON
+                        Initial epsilon value
+  -n NUMBER_OF_ITERATIONS, --number_of_iterations NUMBER_OF_ITERATIONS
+                        Number of iterations
+  -r REPLAY_MEMORY_SIZE, --replay_memory_size REPLAY_MEMORY_SIZE
+                        Replay memory size
+  -b MINIBATCH_SIZE, --minibatch_size MINIBATCH_SIZE
+                        Minibatch size
+
+```
+
+
+
